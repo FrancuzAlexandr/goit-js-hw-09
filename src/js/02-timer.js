@@ -39,8 +39,9 @@ function timerOn() {
     const interval = setInterval(()=>  {
              
         const ms = selectDate - Date.now()
-        if (ms < 1000) {
+        if (ms < 0) {
             clearInterval(interval)
+            flatpickrEl.removeAttribute("disabled")
             return  
         }
         const time = convertMs(ms)
